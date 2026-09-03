@@ -1,84 +1,31 @@
-<img src=".github/assets/hero.svg" width="100%" alt="Aislam Camarini Mastro — AI systems / autonomous software / open source — aislam.dev">
+<img src=".github/assets/hero.svg" width="100%" alt="Aislam Camarini — AI systems, autonomous software, open source — aislam.dev">
 
-**AI engineer. Autonomous systems builder.**  
-I build software that keeps working after I close the laptop: learning systems that model what you know, acquisition engines with spending limits written in code, radars that measure attention instead of guessing it, and the security tooling to audit all of it. Self-taught. Based in Santos, Brazil. Shipping in public at [aislam.dev](https://aislam.dev).
+Aislam Camarini. I build AI systems and the automation around them, mostly in Python and TypeScript, mostly in public. [aislam.dev](https://aislam.dev) shows the work; this account holds the code.
 
-<img src=".github/assets/terminal.svg" width="640" alt="Terminal: whoami — AI engineer, builds autonomous software and what runs it. ls ~/src — noema, forge, isla, isahat. uptime — building, Santos BR, remote, shipping in public.">
+## work
 
-<img src=".github/assets/signal.svg" width="100%" alt="">
+**[noema](https://github.com/aislamsilvalol-ctrl/noema)** — adaptive learning platform. You feed it your material; it tracks what you know, schedules review with FSRS and answers only from sources it can cite. FastAPI, Next.js, Postgres + pgvector. Active. AGPL-3.0.
 
-## now
+**[isla](https://github.com/aislamsilvalol-ctrl/isla)** — virality radar. Pulls public signals (Google Trends, Wikipedia, Bluesky, Hacker News, RSS, YouTube, Twitch, Reddit), measures velocity between real samples and says why something is rising. It won't report a number it hasn't measured. Python, SQLite, REST + SSE. MIT.
 
-- **noema** — hardening the public web app for production: SEO, legal pages, error paths, analytics. `sep 2026`
-- **forge** — foundation landed: capital guard, decision ledger and sentinel, all tested. Next: connectors, persistence. `sep 2026`
-- **isla** — v2 engine: regional lead detection, provenance for every number, live SSE control room. `aug 2026`
-- **usina** — private creative-intelligence platform. isla was extracted from it; forge plugs into its traffic layer.
+**[forge](https://github.com/aislamsilvalol-ctrl/forge)** — acquisition engine for autonomous advertising. Spending limits are code, not prompts: every model proposal is validated and passes a sentinel before it can touch money. Capital guard, decision ledger and sentinel are built and tested; connectors and persistence come next. TypeScript. Apache-2.0.
 
-<img src=".github/assets/signal.svg" width="100%" alt="">
+**[isahat](https://github.com/aislamsilvalol-ctrl/isahat)** — security auditor for vibe-coded web apps and APIs. Safe-by-default scanner (headers, cookies, CORS, redirects, XSS, SQLi, traversal, API surface) with a CLI, a local API and a desktop app. SARIF output. Python. Alpha. Apache-2.0.
 
-## systems
-
-**[noema](https://github.com/aislamsilvalol-ctrl/noema)** · adaptive learning platform  
-Turns documents, notes and questions into a model of what you understand and what you are about to forget. Hybrid retrieval over pgvector, grounded answers with refusal when the material does not support them, a mastery engine, FSRS scheduling, multi-provider AI gateway with encrypted bring-your-own-keys.  
-`Python · FastAPI · Next.js · PostgreSQL + pgvector · Redis · Dramatiq · Anthropic / OpenAI / Ollama`  
-status: active · v0.1 · AGPL-3.0
-
-**[forge](https://github.com/aislamsilvalol-ctrl/forge)** · adaptive acquisition infrastructure  
-An autonomous advertising engine where the capital limits live in code, not in a prompt. Every model proposal is schema-validated and passes a deterministic sentinel before it can move money. Implemented and tested so far: capital guard, decision ledger, sentinel. Connectors, persistence and web surfaces are on the roadmap, and the README says so.  
-`TypeScript · pnpm workspaces · vitest`  
-status: v0.1 foundation · Apache-2.0
-
-**[isla](https://github.com/aislamsilvalol-ctrl/isla)** · virality radar  
-Watches public sources (Google Trends, Wikipedia, Bluesky, Hacker News, RSS, YouTube, Twitch, Reddit) and answers what is about to go viral. Velocity is measured between real samples; without two samples it says "collecting baseline" instead of inventing a number. REST + SSE API, live web UI, optional LLM clustering.  
-`Python · FastAPI · SQLite · SSE · Anthropic (optional)`  
-status: v0.2 · self-hostable · MIT
-
-**[isahat](https://github.com/aislamsilvalol-ctrl/isahat)** · AI security auditor for vibe-coded apps  
-Safe-by-default web and API auditing engine: headers, cookies, CORS, open redirects, reflected XSS, SQL injection, path traversal, API surface discovery. One engine shared by a CLI, a local bridge API and a desktop app. Reports in JSON, Markdown, HTML, SARIF and CSV. Ships with a threat model and a responsible-use policy.  
-`Python · Typer · FastAPI · SQLite · TypeScript desktop shell`  
-status: alpha · v0.1 · Apache-2.0
-
-<img src=".github/assets/signal.svg" width="100%" alt="">
+**usina** — private. The creative-intelligence platform isla came out of and forge plugs into.
 
 ## stack
 
-Only what the repositories above actually use.
-
-- `languages` Python · TypeScript · JavaScript · Shell
-- `ai` Anthropic API · OpenAI API · Ollama · RAG on pgvector · FSRS
-- `backend` FastAPI · Node.js · SQLAlchemy · Dramatiq workers
-- `web` Next.js · React · Tailwind · Three.js / GSAP on aislam.dev
-- `data` PostgreSQL + pgvector · Redis · SQLite
-- `infra` Docker · GitHub Actions · Vercel
-- `security` gitleaks · pip-audit · CycloneDX SBOM · SARIF output
+Python and TypeScript. FastAPI, Next.js. Postgres + pgvector, Redis, SQLite. Anthropic, OpenAI and Ollama behind one provider interface. Docker, GitHub Actions, Vercel.
 
 <img src=".github/assets/languages.svg" width="640" alt="Languages across public repositories: Python 66.9%, TypeScript 31.2%, Shell 1.1%, CSS 0.7%.">
 
-<img src=".github/assets/signal.svg" width="100%" alt="">
+## security
 
-## system / security
-
-<img src=".github/assets/status.svg" width="640" alt="System status. AI systems: active (noema, production). Autonomous software: building (forge, usina). Open source: active (4 public systems). Security: exploring (isahat, threat models, CI scans).">
-
-Security here is a practice, not a title. What that looks like in the code:
-
-- **threat models before features** — forge and isahat document what they protect and what they assume hostile, including model output and campaign text as untrusted input.
-- **secrets never touch the log** — noema redacts provider and Stripe key shapes at the logger, with tests that prove it.
-- **CI that scans** — gitleaks on noema and isahat, pip-audit and a CycloneDX SBOM on isahat, pinned Python dependencies on noema so a green build stays green.
-- **private disclosure** — `SECURITY.md` on noema, forge and isahat points to GitHub private vulnerability reporting; isla's is in [review](https://github.com/aislamsilvalol-ctrl/isla/pull/1).
-
-## open source
-
-Built to be run by strangers. Each system ships with a quick start, an architecture document, a license and a security policy. If a README overstates what the code does, that is a bug and I fix the README.
+A habit, not a title. forge and isahat have threat models. noema's logger redacts key shapes, with tests. CI runs gitleaks, pip-audit and a CycloneDX SBOM. Every public repo has Dependabot, private vulnerability reporting and a SECURITY.md.
 
 ## contact
 
-`aislam.dev` → [aislam.dev](https://aislam.dev)  
-`linkedin` → [aislam-camarini-mastro](https://www.linkedin.com/in/aislam-camarini-mastro)  
-`security` → private vulnerability reporting on each repository
+[contact@aislam.dev](mailto:contact@aislam.dev) · [aislam.dev](https://aislam.dev) · [linkedin](https://www.linkedin.com/in/aislam-camarini-mastro)
 
-<!--
-  You opened the source. That is where the actual profile lives:
-  https://github.com/aislamsilvalol-ctrl?tab=repositories
-  Green is reserved for signal. Everything else is the work.
--->
+<!-- green is for signal. the rest is the work. -->
