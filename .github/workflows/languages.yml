@@ -1,0 +1,42 @@
+name: languages
+
+# Regenerates .github/assets/languages.svg from public repository data.
+# Reads only public endpoints; writes only to this repository.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: languages
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: true
+
+      - name: Render languages.svg
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/languages.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- .github/assets/languages.svg; then
+            echo "no change"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/assets/languages.svg
+          git commit -m "chore: refresh languages.svg"
+          git push
